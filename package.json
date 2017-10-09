@@ -1,0 +1,25 @@
+{
+  "name": "joshua",
+  "version": "1.0.0",
+  "description": "travel planner app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ecko95/derive-planner.git"
+  },
+  "keywords": [
+    "trip",
+    "planner",
+    "app",
+    "derive"
+  ],
+  "author": "joshua duffill lacruz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ecko95/derive-planner/issues"
+  },
+  "homepage": "https://github.com/Ecko95/derive-planner#readme"
+}
