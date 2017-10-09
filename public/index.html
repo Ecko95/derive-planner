@@ -50,7 +50,7 @@
   </head>
   <body>
     <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
-      <main class="mdl-layout__content">
+      <main class="mdl-layout__content" id="content-container">
         <div class="demo-blog__posts mdl-grid">
           <div class="mdl-card coffee-pic mdl-cell mdl-cell--8-col">
             <div class="mdl-card__media mdl-color-text--grey-50">
@@ -187,7 +187,7 @@
   <script>
   $(document).ready(function(){
       $("a").click(function(){
-          $("#link").load("entry.html");
+          $("#content-container").load("entry.html");
       });
   });
 </script>
