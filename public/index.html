@@ -37,7 +37,10 @@
     <!-- Material Design Lite files above. -->
     <link rel="stylesheet" href="./node_modules/mdl-stepper/stepper.min.css">
     <script defer src="./node_modules/mdl-stepper.min.js"></script>
-
+    <!-- Stepper CSS minified -->
+    <link rel="stylesheet" href="./stepper.min.css">
+    <!-- Stepper Javascript minified -->
+    <script defer src="./stepper.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <style>
@@ -212,5 +215,22 @@
           $("#content-container").load("entry.html");
       });
   });
+</script>
+<script> 
+  // Select your stepper element.  
+var stepperElement = document.querySelector('ul.mdl-stepper');
+var Stepper;
+
+// Check if MDL Component Handler is loaded.
+if (typeof componentHandler !== 'undefined') {
+  // Get the MaterialStepper instance of element to control it.          
+  Stepper = stepperElement.MaterialStepper;
+  // Moves the stepper to the next step for test.
+  Stepper.next();
+} else {
+  // Material Design Lite javascript is not loaded or for another  
+  // reason MDL Component Handler is not available globally and
+  // you can't use (register and upgrade) Stepper component at this point.
+}
 </script>
 </html>
