@@ -34,6 +34,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-orange.min.css"/>
     <link rel="stylesheet" href="styles.css">
+    <!-- Material Design Lite files above. -->
+    <link rel="stylesheet" href="./node_modules/mdl-stepper/stepper.min.css">
+    <script defer src="./node_modules/mdl-stepper.min.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <style>
@@ -49,6 +53,24 @@
     </style>
   </head>
   <body>
+    <li class="mdl-step">
+  <!-- label -->
+  <!-- content -->
+  <div class="mdl-step__actions">
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next>
+      Continue
+    </button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel>
+      Cancel
+    </button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-back>
+      Back
+    </button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-skip>
+      Skip
+    </button>
+  </div>
+</li>
     <div class="demo-blog mdl-layout mdl-js-layout has-drawer is-upgraded">
       <main class="mdl-layout__content" id="content-container">
         <div class="demo-blog__posts mdl-grid">

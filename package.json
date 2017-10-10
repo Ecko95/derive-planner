@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Ecko95/derive-planner/issues"
   },
-  "homepage": "https://github.com/Ecko95/derive-planner#readme"
+  "homepage": "https://github.com/Ecko95/derive-planner#readme",
+  "dependencies": {
+    "mdl-stepper": "^1.1.6"
+  }
 }
