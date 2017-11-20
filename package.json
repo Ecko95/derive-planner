@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/Ecko95/derive-planner#readme",
   "dependencies": {
+    "firebaseui": "^2.4.1",
     "mdl-stepper": "^1.1.6"
   }
 }
