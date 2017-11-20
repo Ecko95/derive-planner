@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-    <title>Derive Trip Planner</title>
+    <meta charset="UTF-8">
+    <title>Sample FirebaseUI App</title>
+    
+    <input type="email" name="email" id="input" placeholder="enter your email..." value="" required="required" title="">
 
-	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.4.1/firebaseui.css" />
+
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 	<script>
 	  // Initialize Firebase
 	  var config = {
@@ -20,266 +23,53 @@
 	  };
 	  firebase.initializeApp(config);
 	</script>
-
-
     <script type="text/javascript">
-      initApp = function() {
-        firebase.auth().onAuthStateChanged(function(user) {
-          if (user) {
-            // User is signed in.
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var uid = user.uid;
-            var phoneNumber = user.phoneNumber;
-            var providerData = user.providerData;
-            user.getIdToken().then(function(accessToken) {
-              document.getElementById('sign-in-status').textContent = 'Signed in';
-              document.getElementById('sign-in').textContent = 'Sign out';
-              document.getElementById('account-details').textContent = JSON.stringify({
-                displayName: displayName,
-                email: email,
-                emailVerified: emailVerified,
-                phoneNumber: phoneNumber,
-                photoURL: photoURL,
-                uid: uid,
-                accessToken: accessToken,
-                providerData: providerData
-              }, null, '  ');
-            });
-          } else {
-            // User is signed out.
-            document.getElementById('sign-in-status').textContent = 'Signed out';
-            document.getElementById('sign-in').textContent = 'Sign in';
-            document.getElementById('account-details').textContent = 'null';
+      // FirebaseUI config.
+      var uiConfig = {
+        callbacks: {
+          signInSuccess: function(currentUser, credential, redirectUrl) {
+            // Do something.
+            // Return type determines whether we continue the redirect automatically
+            // or whether we leave that to developer to handle.
+            return true;
+          },
+          uiShown: function() {
+            // The widget is rendered.
+            // Hide the loader.
+            document.getElementById('loader').style.display = 'none';
           }
-        }, function(error) {
-          console.log(error);
-        });
+        },
+        credentialHelper: firebaseui.auth.CredentialHelper.ACCOUNT_CHOOSER_COM,
+        // Query parameter name for mode.
+        queryParameterForWidgetMode: 'mode',
+        // Query parameter name for sign in success url.
+        queryParameterForSignInSuccessUrl: 'signInSuccessUrl',
+        // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+        signInFlow: 'popup',
+        signInSuccessUrl: 'home.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          {
+            provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
+            // Whether the display name should be displayed in the Sign Up page.
+            requireDisplayName: true
+          }
+        ],
+        // Terms of service url.
+        tosUrl: '<your-tos-url>'
       };
 
-      window.addEventListener('load', function() {
-        initApp()
-      });
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#firebaseui-auth-container', uiConfig);
     </script>
-
-    <!-- Add to homescreen for Chrome on Android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
-
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
-    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
-
-    <!-- Tile icon for Win8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-    <meta name="msapplication-TileColor" content="#3372DF">
-
-    <link rel="shortcut icon" href="images/favicon.png">
-    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
-    <!--
-    <link rel="canonical" href="http://www.example.com/">
-    -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
-	<link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/css/bootstrap-material-design.min.css" integrity="sha384-R80DC0KVBO4GSTw+wZ5x2zn2pu4POSErBkf8/fSFhPXHxvHJydT0CSgAP2Yo2r4I" crossorigin="anonymous">
-
-	
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.purple-orange.min.css"/>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Material Design Lite files above. -->
-    <!-- Stepper CSS minified -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-app.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase-auth.js"></script>
-
-    <style>
-    #view-source {
-      position: fixed;
-      display: block;
-      right: 0;
-      bottom: 0;
-      margin-right: 40px;
-      margin-bottom: 40px;
-      z-index: 900;
-    }
-    </style>
   </head>
   <body>
-    <style>
-    .demo-layout-transparent {
-      background: url('../assets/demos/transparent.jpg') center / cover;
-    }
-    .demo-layout-transparent .mdl-layout__header,
-    .demo-layout-transparent .mdl-layout__drawer-button {
-      /* This background is dark, so we set text to white. Use 87% black instead if
-         your background is light. */
-      color: white;
-    }
-    .card-title{
-    }
-    .card:hover {
-		  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-		}
-    </style>
-    <!-- nav menu -->
-    <div class="demo-layout-transparent mdl-layout mdl-js-layout">
-      <header class="mdl-layout__header mdl-layout__header--transparent">
-        <div class="mdl-layout__header-row">
-          <!-- Title -->
-          <span class="mdl-layout-title">Derive Trip Planner</span>
-          <!-- Add spacer, to align navigation to the right -->
-          <div class="mdl-layout-spacer"></div>
-          <!-- Navigation -->
-          <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-            <a class="mdl-navigation__link" href="">Link</a>
-          </nav>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="">GET</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
-      </div>
-      <main class="mdl-layout__content">
-      </main>
-    </div>
-    <!-- cards -->
-    <div class="planner mdl-layout mdl-js-layout has-drawer is-upgraded">
-      <main class="mdl-layout__content" id="content-container">
-        <div class="planner__posts mdl-grid">
-          <div class="mdl-card destination-pic mdl-cell mdl-cell--8-col">
-            <div class="mdl-card__media mdl-color-text--black-50">
-              <h3 class="card-title">Plan your Trip</h3>
-            </div>
-<!-- caption for card -->
-<!--             <div class="mdl-card__supporting-text meta mdl-color-text--grey-600">
-              <div class="minilogo"></div>
-              <div>
-                <strong>The Newist</strong>
-                <span>2 days ago</span>
-              </div>
-            </div> -->
-          </div>
-          <div class="mdl-card something-else mdl-cell mdl-cell--8-col mdl-cell--4-col-desktop">
-            <button class="mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--fab mdl-color--accent">
-              <i class="material-icons mdl-color-text--white" role="presentation">input</i>
-              <span class="visuallyhidden">add</span>
-            </button>
-            <div class="mdl-card__media mdl-color--white mdl-color-text--grey-600">
-              <img src="images/logo.png">
-              +1,337
-            </div>
-            <div class="mdl-card__media mdl-color-text--grey-50">
-              <h3><a id="link" href="#">Profile</a></h3>
-            </div>
-          </div>
-          <div class="mdl-cell mdl-cell--8-col">
-          	<div class="card" style="width: 20rem;">
-			  <img class="card-img-top" src="images/cards/safety.png" alt="Card image cap">
-			  <div class="card-body">
-			    <h4 class="card-title">Card title</h4>
-			    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    <a href="#" class="btn btn-primary">Go somewhere</a>
-			  </div>
-			</div>
-          </div>
-
-          <nav class="demo-nav mdl-cell mdl-cell--12-col">
-            <div class="section-spacer"></div>
-            <a href="entry.html" class="demo-nav__button" title="show more">
-              More
-              <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-                <i class="material-icons" role="presentation">arrow_forward</i>
-              </button>
-            </a>
-          </nav>
-        </div>
-        <!-- end of grid -->
-        <footer class="mdl-mini-footer">
-          <div class="mdl-mini-footer--left-section">
-            <button class="mdl-mini-footer--social-btn social-btn social-btn__twitter">
-              <span class="visuallyhidden">Twitter</span>
-            </button>
-            <button class="mdl-mini-footer--social-btn social-btn social-btn__blogger">
-              <span class="visuallyhidden">Facebook</span>
-            </button>
-            <button class="mdl-mini-footer--social-btn social-btn social-btn__gplus">
-              <span class="visuallyhidden">Google Plus</span>
-            </button>
-          </div>
-          <div class="mdl-mini-footer--right-section">
-            <button class="mdl-mini-footer--social-btn social-btn__share">
-              <i class="material-icons" role="presentation">share</i>
-              <span class="visuallyhidden">share</span>
-            </button>
-          </div>
-        </footer>
-      </main>
-      <div class="mdl-layout__obfuscator"></div>
-    </div>
-    <a href="stepper.html" target="_blank" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--white">View Stepper</a>
-
-
-
-
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-	<script src="https://unpkg.com/bootstrap-material-design@4.0.0-beta.4/dist/js/bootstrap-material-design.js" integrity="sha384-3xciOSDAlaXneEmyOo0ME/2grfpqzhhTcM4cE32Ce9+8DW/04AGoTACzQpphYGYe" crossorigin="anonymous"></script>
-	<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
-    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <!-- The surrounding HTML is left untouched by FirebaseUI.
+         Your app may use that space for branding, controls and other customizations.-->
+    <h1>Welcome to My Awesome App</h1>
+    <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
   </body>
-<!--   <script>
-    Array.prototype.forEach.call(document.querySelectorAll('.mdl-card__media'), function(el) {
-      var link = el.querySelector('a');
-      if(!link) {
-        return;
-      }
-      var target = link.getAttribute('href');
-      if(!target) {
-        return;
-      }
-      el.addEventListener('click', function() {
-        location.href = target;
-      });
-    });
-  </script> -->
-  <script>
-  $(document).ready(function(){
-      $("a").click(function(){
-          $("#content-container").load("entry.html");
-      });
-  });
-</script>
-<script> 
-  // Select your stepper element.  
-var stepperElement = document.querySelector('ul.mdl-stepper');
-var Stepper;
-
-// Check if MDL Component Handler is loaded.
-if (typeof componentHandler !== 'undefined') {
-  // Get the MaterialStepper instance of element to control it.          
-  Stepper = stepperElement.MaterialStepper;
-  // Moves the stepper to the next step for test.
-  Stepper.next();
-} else {
-  // Material Design Lite javascript is not loaded or for another  
-  // reason MDL Component Handler is not available globally and
-  // you can't use (register and upgrade) Stepper component at this point.
-}
-</script>
-
-
 </html>
