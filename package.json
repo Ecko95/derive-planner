@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/Ecko95/derive-planner#readme",
   "dependencies": {
+    "@material/drawer": "^0.29.0",
     "firebaseui": "^2.4.1",
+    "material-components-web": "^0.28.0",
     "mdl-stepper": "^1.1.6"
   }
 }
