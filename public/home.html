@@ -1,27 +1,9 @@
-Skip to content
-This repository
-Search
-Pull requests
-Issues
-Marketplace
-Explore
- @Ecko95
- Sign out
- Watch 330
-  Star 7,369  Fork 844 material-components/material-components-web
- Code  Issues 226  Pull requests 40  Projects 0  Insights
-Branch: master Find file Copy pathmaterial-components-web/docs/codelabs/building-beautiful-sites/starter/index.html
-6078784  11 days ago
-@chaficnajjar chaficnajjar docs: Rewrite all instances of "MDC-Web" as "MDC Web" (#1960)
-2 contributors @traviskaufman @chaficnajjar
-RawBlameHistory     
-60 lines (58 sloc)  2.73 KB
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Shrine (MDC Web Example App)</title>
+  <title>derive (MDC Web Example App)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" sizes="192x192" href="https://material.io/static/images/simple-lp/favicons/components-192x192.png">
   <link rel="shortcut icon" href="https://material.io/static/images/simple-lp/favicons/components-72x72.png">
@@ -31,59 +13,97 @@ RawBlameHistory
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
   <link rel="stylesheet"
         href="https://unpkg.com/material-components-web@0.9.1/dist/material-components-web.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="app.css">
 </head>
 <body class="mdc-typography">
-  <h1 class="mdc-typography--display4">Shrine</h1>
-  <main>
-    <div class="mdc-card shrine-product-card">
-      <section class="mdc-card__primary">
-        <span class="mdc-card__title shrine-product-card__price">$20</span>
-      </section>
-      <img class="shrine-product-card__image" width="240" height="240" alt="Sunglasses" src="assets/sunnies.png">
-    </div>
-    <div class="mdc-card shrine-product-card">
-      <section class="mdc-card__primary">
-        <span class="mdc-card__title shrine-product-card__price">$80</span>
-      </section>
-      <img class="shrine-product-card__image" width="240" height="240" alt="Shoes" src="assets/chucks.png">
-    </div>
-    <div class="mdc-card shrine-product-card">
-      <section class="mdc-card__primary">
-        <span class="mdc-card__title shrine-product-card__price">$90</span>
-      </section>
-      <img class="shrine-product-card__image" width="240" height="240" alt="Beach ball" src="assets/beachball.png">
-    </div>
-    <div class="mdc-card shrine-product-card">
-      <section class="mdc-card__primary">
-        <span class="mdc-card__title shrine-product-card__price">$30</span>
-      </section>
-      <img class="shrine-product-card__image" width="240" height="240" alt="Backpack" src="assets/backpack.png">
-    </div>
-    <div class="mdc-card shrine-product-card">
-      <section class="mdc-card__primary">
-        <span class="mdc-card__title shrine-product-card__price">$90</span>
-      </section>
-      <img class="shrine-product-card__image" width="240" height="240" alt="Clock" src="assets/clock.png">
-    </div>
-    <div class="mdc-card shrine-product-card">
-      <section class="mdc-card__primary">
-        <span class="mdc-card__title shrine-product-card__price">$30</span>
-      </section>
-      <img class="shrine-product-card__image" width="240" height="240" alt="Fish bowl" src="assets/fishbowl.png">
-    </div>
+
+    <header id="derive-header"
+        class="mdc-toolbar mdc-toolbar--fixed mdc-theme--text-primary-on-background">
+  <div class="mdc-toolbar__row">
+    <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
+      <a id="derive-nav-icon" class="material-icons mdc-ripple-surface"  
+    href="#" 
+   aria-label="Click to show the navigation menu"
+   aria-controls="derive-nav-menu"
+   data-mdc-auto-init="MDCRipple"
+   data-mdc-ripple-is-unbounded>menu</a>
+      <h1 id="derive-logo"          
+          class="mdc-toolbar__title"><span>derive</span></h1>
+    </section>
+  </div>
+</header>
+<aside id="derive-nav-menu" class="mdc-temporary-drawer" data-mdc-auto-init="MDCTemporaryDrawer">
+  <nav class="mdc-temporary-drawer__drawer">
+    <header class="mdc-temporary-drawer__header"></header>
+   <nav id="icon-with-text-demo" class="mdc-drawer__content mdc-list">
+      <a class="mdc-list-item mdc-list-item--activated" href="#">
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>Inbox
+      </a>
+      <a class="mdc-list-item" href="#">
+        <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Star
+      </a>
+    </nav>
+  </nav>
+</aside>
+  <main id="derive-products" class="mdc-layout-grid mdc-toolbar-fixed-adjust">
+    <div class="mdc-layout-grid__cell">
+      <div class="mdc-card derive-product-card">
+        <section class="mdc-card__primary">
+          <span class="mdc-card__title derive-product-card__price">$20</span>
+        </section>
+        <img class="derive-product-card__image" width="240" height="240" alt="Sunglasses" src="assets/sunnies.png">
+      </div>
+    </div>  
+    <div class="mdc-layout-grid__cell">
+      <div class="mdc-card derive-product-card">
+        <section class="mdc-card__primary">
+          <span class="mdc-card__title derive-product-card__price">$20</span>
+        </section>
+        <img class="derive-product-card__image" width="240" height="240" alt="Sunglasses" src="assets/sunnies.png">
+      </div>
+    </div>  
+    <div class="mdc-layout-grid__cell">
+      <div class="mdc-card derive-product-card">
+        <section class="mdc-card__primary">
+          <span class="mdc-card__title derive-product-card__price">$20</span>
+        </section>
+        <img class="derive-product-card__image" width="240" height="240" alt="Sunglasses" src="assets/sunnies.png">
+      </div>
+    </div>  
+    <div class="mdc-layout-grid__cell">
+      <div class="mdc-card derive-product-card">
+        <section class="mdc-card__primary">
+          <span class="mdc-card__title derive-product-card__price">$20</span>
+        </section>
+        <img class="derive-product-card__image" width="240" height="240" alt="Sunglasses" src="assets/sunnies.png">
+      </div>
+    </div>  
+    <div class="mdc-layout-grid__cell">
+      <div class="mdc-card derive-product-card">
+        <section class="mdc-card__primary">
+          <span class="mdc-card__title derive-product-card__price">$20</span>
+        </section>
+        <img class="derive-product-card__image" width="240" height="240" alt="Sunglasses" src="assets/sunnies.png">
+      </div>
+    </div>  
+    <div class="mdc-layout-grid__cell">
+      <div class="mdc-card derive-product-card">
+        <section class="mdc-card__primary">
+          <span class="mdc-card__title derive-product-card__price">$20</span>
+        </section>
+        <img class="derive-product-card__image" width="240" height="240" alt="Sunglasses" src="assets/sunnies.png">
+      </div>
+    </div>  
   </main>
+  <script src="https://unpkg.com/material-components-web@0.9.1/dist/material-components-web.min.js">
+</script>
+<script>
+  mdc.autoInit();
+  document.getElementById('derive-nav-icon').addEventListener('click', function(evt) {
+    evt.preventDefault();
+    document.getElementById('derive-nav-menu').MDCTemporaryDrawer.open = true;
+  });
+</script>
 </body>
 </html>
-© 2018 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-API
-Training
-Shop
-Blog
-About
