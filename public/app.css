@@ -24,6 +24,7 @@ body {
 #derive-header {
     background-color: var(--mdc-theme-background);
     color: var(--mdc-theme-text-primary-on-background);
+    box-shadow: 0 0 0 0;
 }
 
 #derive-header .mdc-toolbar__section {
@@ -51,47 +52,51 @@ body {
   border: 0;*/
 }
 
-#derive-nav-icon {
+#derive-planner-icon {
     width: 24px;
     height: 24px;
     margin-right: 40px;
     text-decoration: none;
 }
 
-#derive-nav-icon:visited,
-#derive-nav-icon:active,
-#derive-nav-icon:focus {
+#derive-planner-icon:visited,
+#derive-planner-icon:active,
+#derive-planner-icon:focus {
     color: var(--mdc-theme-text-primary-on-background);
 }
 
-#derive-nav-menu {
-    text-transform: uppercase;
-    padding-left: 16px;
+
+#derive-planner-menu .mdc-temporary-drawer__header {
+    background: url(images/trip-planner.jpg) center no-repeat;
+    /*background-size: 30%;*/
+    padding-left: 32px;
+    padding-bottom: 12px;
 }
 
-#derive-nav-menu .mdc-temporary-drawer__drawer {
-    background-color: #fafafa;
-}
-
-#derive-nav-menu .mdc-temporary-drawer__header {
-    background: url(assets/logo.png) 32px 32px no-repeat;
-    background-size: 30%;
-}
-
-#derive-nav-menu .mdc-temporary-drawer__header::before {
+#derive-planner-menu .mdc-temporary-drawer__header::before {
     padding-top: 30%;
 }
 
-#derive-nav-menu .mdc-temporary-drawer__content {
-    background: url(assets/diamond.svg) -32px bottom no-repeat;
-    background-size: 50%;
+#derive-planner-menu .mdc-list-item__graphic{
+    padding-right: 10px;
 }
 
-#derive-nav-menu .mdc-list-item {
-    height: 32px;
+
+#derive-planner-menu .mdc-list-item {
+/*    height: 32px;*/
+    padding-top: 15px;
     padding-left: 32px;
     letter-spacing: .2em;
 }
+
+#derive-planner-menu .mdc-list-item--selected{
+    color: var(--mdc-theme-primary, #6200ee);
+}
+
+.mdc-list-item--activated{
+    color: var(--mdc-theme-primary, #6200ee);
+}
+
 
 #derive-products {
     --mdc-layout-grid-gutter: 8px;
@@ -108,6 +113,9 @@ body {
 
 .my-grid-list .mdc-grid-tile {
     width: 100%;
+}
+.mdc-list-group{
+    margin-top: 16px;
 }
 
 .my-tile-image {
@@ -130,3 +138,12 @@ body {
         font-size: 1rem;
     }
 }
+
+.mdc-toolbar__menu-icon{
+    padding-right: 10px;
+
+}
+#derive-planner-menu .mdc-list-item {
+    padding-bottom:30px;
+}
+

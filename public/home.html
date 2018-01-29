@@ -27,140 +27,186 @@
     <header id="derive-header" class="mdc-toolbar mdc-toolbar--fixed mdc-theme--text-primary-on-background">
         <div class="mdc-toolbar__row">
             <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
-                <a id="derive-nav-icon" class="material-icons mdc-ripple-surface" href="#" aria-label="Click to show the navigation menu" aria-controls="derive-nav-menu" data-mdc-auto-init="MDCRipple" data-mdc-ripple-is-unbounded>menu</a>
-                <h1 id="derive-logo" class="mdc-toolbar__title"><span>derive</span></h1>
+                <a id="derive-planner-icon" class="material-icons mdc-ripple-surface" href="#" aria-label="Click to show the navigation menu" aria-controls="derive-planner-menu" data-mdc-auto-init="MDCRipple" data-mdc-ripple-is-unbounded>menu</a>
+                <a href="/public/home.html" class="mdc-toolbar__menu-icon"><i class="material-icons"></i></a>
+                <h1 id="derive-logo" class="mdc-toolbar__title"><span>Derive Planner</span></h1>
             </section>
         </div>
     </header>
-    <aside id="derive-nav-menu" class="mdc-temporary-drawer" data-mdc-auto-init="MDCTemporaryDrawer">
+    <aside id="derive-planner-menu" class="mdc-temporary-drawer" data-mdc-auto-init="MDCTemporaryDrawer">
         <nav class="mdc-temporary-drawer__drawer">
-            <header class="mdc-temporary-drawer__header"></header>
-            <nav id="icon-with-text-demo" class="mdc-drawer__content mdc-list">
-                <a class="mdc-list-item mdc-list-item--activated" href="#">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>Inbox
-        </a>
-                <a class="mdc-list-item" href="#">
-          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Star
-        </a>
+           <div class="mdc-drawer__header-content mdc-theme--text-primary-on-primary mdc-theme--primary-bg">
+              <header class="mdc-temporary-drawer__header">
+                 
+                      <h2 class="h2-responsive">Menu</h2>
+                  
+              </header>
+            </div>
+            <nav class="mdc-drawer__drawer">
+                <div class="mdc-drawer__toolbar-spacer"></div>
+                <div class="mdc-list-group">
+                    <nav class="mdc-list">
+                        <a class="mdc-list-item mdc-list-item--selected drawer-list-item" href="#1">
+                          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>Home
+                        </a>
+                        <a class="mdc-list-item drawer-list-item" href="#2">
+                          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Your Trips
+                        </a>
+                        <a class="mdc-list-item drawer-list-item" href="#3">
+                          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>Sent Mail
+                        </a>
+                        <a class="mdc-list-item drawer-list-item" href="#4">
+                          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>Drafts
+                        </a>
+                    </nav>
+                    <hr class="mdc-list-divider">
+                    <nav class="mdc-list">
+                        <a class="mdc-list-item drawer-list-item" href="#">
+                          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">email</i>All Mail
+                        </a>
+                        <a class="mdc-list-item drawer-list-item" href="#">
+                          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">delete</i>Trash
+                        </a>
+                        <a class="mdc-list-item drawer-list-item" href="#">
+                          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">report</i>Spam
+                        </a>
+                    </nav>
+                </div>
             </nav>
         </nav>
     </aside>
-    <main class="text-center py-5 m-5">
+    <main class="text-center m-5">
         <!--Main layout-->
-        <div class="container">
-            
-            <h1>Welcome To Derive Planner</h1>
+        <!-- <div class="edge-header" style="background-image: url(images/road_big.jpg);"></div> -->
+        <div class="container" id="load-container">
+            <h1 class="h1-responsive p-5">Welcome To Derive Planner</h1>
             <!--Section: Best features-->
             <section id="best-features">
-                <div class="row pt-3">
+                <div class="row">
                     <!--First columnn-->
-                    <div class="col-lg-3 mb-r">
+                    <div class="col-lg-8 mb-r ">
                         <!--Card-->
-                        <div class="card hoverable wow fadeIn">
-                            <!--Card image-->
-                            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/72.jpg" alt="Card image cap">
-                            <!--Card content-->
-                            <div class="card-body">
-                                <!--Title-->
-                                <h4 class="card-title text-center">Card title</h4>
-                                <hr>
-                                <!--Text-->
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a id="createJourney">
+                            <div class="card hoverable wow fadeIn view">
+                                <!--Card image-->
+                                <img class="img-fluid" src="images/trip-planner.jpg" alt="Card image cap">
+                                <!--Card content-->
+                                <div class="mask flex-center waves-effect waves-light">
+                                    <h2 class="white-text">Create a Trip</h2>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                         <!--/.Card-->
                     </div>
                     <!--First columnn-->
-                    <!--Second columnn-->
-                    <div class="col-lg-3 mb-r">
-                        <!--Card-->
-                        <div class="card hoverable wow fadeIn" data-wow-delay="0.2s">
-                            <!--Card image-->
-                            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/75.jpg" alt="Card image cap">
-                            <!--Card content-->
-                            <div class="card-body">
-                                <!--Title-->
-                                <h4 class="card-title text-center">Card title</h4>
-                                <hr>
-                                <!--Text-->
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <div class="col-lg-4 ">
+                        <div class="row">
+                            <!--Third columnn-->
+                            <div class="col-lg-12 mb-r">
+                                <!--Card-->
+                                <a href="#" id="detailsApp">
+                                    <div class="card hoverable wow fadeIn view">
+                                        <!--Card image-->
+                                        <img class="img-fluid" src="images/road.jpg" alt="Card image cap">
+                                        <!--Card content-->
+                                        <div class="mask flex-center waves-effect waves-light">
+                                            <h2 class="white-text">Saved Trips</h2>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--/.Card-->
                             </div>
-                        </div>
-                        <!--/.Card-->
-                    </div>
-                    <!--Second columnn-->
-                    <!--Third columnn-->
-                    <div class="col-lg-3 mb-r">
-                        <!--Card-->
-                        <div class="card hoverable wow fadeIn" data-wow-delay="0.4s">
-                            <!--Card image-->
-                            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/64.jpg" alt="Card image cap">
-                            <!--Card content-->
-                            <div class="card-body">
-                                <!--Title-->
-                                <h4 class="card-title text-center">Card title</h4>
-                                <hr>
-                                <!--Text-->
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <!--Second columnn-->
+                            <div class="col-lg-12 mb-r">
+                                <!--Card-->
+                                <a href="#" id="cityResults">
+                                    <div class="card hoverable wow fadeIn view">
+                                        <!--Card image-->
+                                        <img class="img-fluid" src="images/coffee.jpg" alt="Card image cap">
+                                        <!--Card content-->
+                                        <div class="mask flex-center waves-effect waves-light">
+                                            <h2 class="white-text">Bookings</h2>
+                                        </div>
+                                    </div>
+                                </a>
+                                <!--/.Card-->
                             </div>
+                            <!--Second columnn-->
                         </div>
-                        <!--/.Card-->
+                        <!--end of row -->
                     </div>
-                    <!--Third columnn-->
-                    <!--First columnn-->
-                    <div class="col-lg-3 mb-r">
-                        <!--Card-->
-                        <div class="card hoverable wow fadeIn" data-wow-delay="0.6s">
-                            <!--Card image-->
-                            <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/63.jpg" alt="Card image cap">
-                            <!--Card content-->
-                            <div class="card-body">
-                                <!--Title-->
-                                <h4 class="card-title text-center">Card title</h4>
-                                <hr>
-                                <!--Text-->
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                        </div>
-                        <!--/.Card-->
-                    </div>
-                    <!--First columnn-->
-                </div>
             </section>
             <!--/Section: Best features-->
-
-            <div class="row wow fadeIn" data-wow-delay="0.2s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.2s;">
-                <div class="col-md-12">
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(28).jpg" class="img-fluid" alt="">
-                            <a href="#">
-                                <div class="mask waves-effect waves-light"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <div class="card-body text-center mb-3">
-                            <!--Title-->
-                            <h3 class="card-title mt-2 pb-4">
-                                <strong>Card title</strong>
-                            </h3>
-                            <!--Text-->
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.
-                            </p>
-                            <a href="#" class="btn btn-blue-grey btn-md waves-effect waves-light">Button</a>
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
+            <hr>
+            </div>
+            <!--/.Main layout-->
+            <!--Footer-->
+    <footer class="page-footer transparent center-on-small-only">
+        <!--Footer Links-->
+        <div class="container dark-grey-text">
+            <div class="row">
+                <!--First column-->
+                <div class="col-md-4">
+                    <h6 class="title font-bold"><strong>Company name</strong></h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p>Here you can use rows and columns here to organize your footer content.</p>
                 </div>
+                <!--/.First column-->
+                <!--Second column-->
+                <div class="col-md-4">
+                    <h6 class="title font-bold"><strong>Links</strong></h6>
+                    <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <ul>
+                        <li><a href="#!" class="dark-grey-text">Link 1</a></li>
+                        <li><a href="#!" class="dark-grey-text">Link 2</a></li>
+                        <li><a href="#!" class="dark-grey-text">Link 3</a></li>
+                        <li><a href="#!" class="dark-grey-text">Link 4</a></li>
+                    </ul>
+                </div>
+                <!--/.Second column-->
+
+                <!--Fourth column-->
+                <div class="col-md-4">
+                    <h6 class="title font-bold"><strong>Contact</strong></h6>
+                    <hr class="teal accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                    <p><i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+                    <p><i class="fa fa-envelope mr-3"></i> info@example.com</p>
+                    <p><i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+                    <p><i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+                </div>
+                <!--/.Fourth column-->
             </div>
         </div>
-        <!--/.Main layout-->
+        <!--/.Footer Links-->
+        <!--Copyright-->
+        <div class="footer-copyright grey">
+            <div class="container-fluid ">
+                © 2017 Copyright: <a href="#"> Joshua Duffill Lacruz </a>
+            </div>
+        </div>
+        <!--/.Copyright-->
+    </footer>
     </main>
+    
+    <!--Modal: modalCookie-->
+    <div class="modal fade bottom" id="modalCookie" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
+        <div class="modal-dialog modal-frame modal-bottom modal-notify modal-info mdc-elevation--z24" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <p class="pt-3 pr-2">We use cookies to improve your website experience</p>
+                        <button type="button" class="mdc-button dismiss"> Learn more</button>
+                        <button type="button" class="mdc-button dismiss" data-dismiss="modal"> Ok, thanks</button>
+                    </div>
+                </div>
+            </div>
+            <!--/.Content-->
+        </div>
+    </div>
+    <!--Modal: modalCookie-->
+    <!--/.Footer-->
     <!-- Scripts -->
     <!-- JQUERY -->
     <script src="https://unpkg.com/material-components-web@0.9.1/dist/material-components-web.min.js"></script>
@@ -174,9 +220,44 @@
     </script>
     <script>
     mdc.autoInit();
-    document.getElementById('derive-nav-icon').addEventListener('click', function(evt) {
+    document.getElementById('derive-planner-icon').addEventListener('click', function(evt) {
         evt.preventDefault();
-        document.getElementById('derive-nav-menu').MDCTemporaryDrawer.open = true;
+        document.getElementById('derive-planner-menu').MDCTemporaryDrawer.open = true;
+    });
+    </script>
+    <!-- <script type="text/javascript">
+    $(document).ready(function() {
+        $('#modalCookie').modal('show');
+    });
+    </script> -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#createJourney").click(function() {
+            $("#load-container").load("form.html");
+        });
+        $("#detailsApp").click(function() {
+            $("#load-container").load("details.html #content");
+        });
+        $("#cityResults").click(function() {
+            $("#load-container").load("column-listings.html");
+        });
+    });
+    </script>
+    <script type="text/javascript">
+    // Demonstrate application of --activated modifier to drawer menu items
+    var activatedClass = 'mdc-list-item--selected';
+    document.querySelector('.mdc-drawer__drawer').addEventListener('click', function(event) {
+        var el = event.target;
+        while (el && !el.classList.contains('mdc-list-item')) {
+            el = el.parentElement;
+        }
+        if (el) {
+            var activatedItem = document.querySelector('.' + activatedClass);
+            if (activatedItem) {
+                activatedItem.classList.remove(activatedClass);
+            }
+            event.target.classList.add(activatedClass);
+        }
     });
     </script>
 </body>
