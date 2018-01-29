@@ -90,7 +90,17 @@ html, body {
   --mdc-layout-grid-gutter: 8px;
 }
 
-#derive-products .mdc-layout-grid__cell {
+#derive-products .mdc-layout-cell{
   display: flex;
   justify-content: center;
 }
+
+.mdc-grid-tile {
+    --mdc-grid-list-tile-width: 300px;
+  }
+.my-grid-list .mdc-grid-tile {
+      width : 100%;
+    } 
+.my-tile-image{
+  background-image: url(images/cards/baloon.png) no-repeat center/cover;
+}     
