@@ -25,9 +25,11 @@
     <!-- backup links -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.6/angular-material.min.css">
+
 </head>
 
-<body class="mdc-typography">
+<body class="mdc-typography" >
     <header id="derive-header" class="mdc-toolbar mdc-toolbar--fixed mdc-theme--text-primary-on-background">
         <div class="mdc-toolbar__row">
             <section class="mdc-toolbar__section mdc-toolbar__section--align-start">
@@ -56,8 +58,8 @@
                         <a class="mdc-list-item drawer-list-item" href="#2">
                           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">star</i>Your Trips
                         </a>
-                        <a class="mdc-list-item drawer-list-item" href="#3">
-                          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>Sent Mail
+                        <a class="mdc-list-item drawer-list-item" href="/public/form.html">
+                          <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>Search Flights
                         </a>
                         <a class="mdc-list-item drawer-list-item" href="#4">
                           <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>Drafts
@@ -79,10 +81,10 @@
             </nav>
         </nav>
     </aside>
-    <main class="text-center m-5">
+    <main class="text-center m-5" id="load-container">
         <!--Main layout-->
         <!-- <div class="edge-header" style="background-image: url(images/road_big.jpg);"></div> -->
-        <div class="container" id="load-container">
+        <div class="container">
             <h1 class="h1-responsive p-5">Welcome To Derive Planner</h1>
             <!--Section: Best features-->
             <section id="best-features">
@@ -141,10 +143,12 @@
                     </div>
             </section>
             <!--/Section: Best features-->
-            <hr>
-            </div>
+             <md-button md-no-ink="" class="md-primary">Primary Angular Button</md-button>
+          </div>
             <!--/.Main layout-->
             <!--Footer-->
+    
+    </main>
     <footer class="page-footer transparent center-on-small-only">
         <!--Footer Links-->
         <div class="container dark-grey-text">
@@ -190,8 +194,7 @@
         </div>
         <!--/.Copyright-->
     </footer>
-    </main>
-    
+
     <!--Modal: modalCookie-->
     <div class="modal fade bottom" id="modalCookie" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="false">
         <div class="modal-dialog modal-frame modal-bottom modal-notify modal-info mdc-elevation--z24" role="document">
@@ -210,6 +213,16 @@
         </div>
     </div>
     <!--Modal: modalCookie-->
+
+    <!-- AngularJS Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-messages.min.js"></script>
+
+    <!-- AngularJS Material Javascript now available via Google CDN; version 1.1.4 used here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.6/angular-material.min.js"></script>
+    
     <!--/.Footer-->
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js"></script>
@@ -240,10 +253,10 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $("#createJourney").click(function() {
-            $("#load-container").load("form.html");
+            $("#load-container").load("form.html #search-flight-form");
         });
         $("#detailsApp").click(function() {
-            $("#load-container").load("details.html #content");
+            $("#load-container").load("details.html");
         });
         $("#cityResults").click(function() {
             $("#load-container").load("column-listings.html");
@@ -267,6 +280,8 @@
         }
     });
     </script>
+    
+
 </body>
 
 </html>
