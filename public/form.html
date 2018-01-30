@@ -27,6 +27,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-messages.min.js"></script>
     <!-- AngularJS Material Javascript now available via Google CDN; version 1.1.4 used here -->
     <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.6-master-15a8410/angular-material.js"></script>
+	
     <script language="javascript">
     angular
         .module('FlightSearch', ['ngMaterial'])
@@ -245,20 +246,7 @@
                 </div>
             </div>
             <!-- <div ng-controller="AppCtrl" ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-app="FlightLists"> -->
-            <md-content>
-			      <md-list flex="">
-			        <md-subheader class="md-no-sticky">3 line item (with hover)</md-subheader>
-			        <md-list-item class="md-3-line" ng-repeat="item in todos" ng-click="null">
-			          <img ng-src="{{item.face}}?{{$index}}" class="md-avatar" alt="{{item.who}}">
-			          <div class="md-list-item-text" layout="column">
-			            <h3>Item 1</h3>
-			            <h4>Item What</h4>
-			            <p>Item Notes</p>
-			          </div>
-			        </md-list-item>
-			        <md-divider></md-divider>
-			    </md-list>
-			</md-content>
+            
 		<!-- </div> -->
             <!-- <div class="col-md-4 order-md-2 mb-4 p-5">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -306,5 +294,6 @@
     </main>
     </script>
 </body>
+
 
 </html>
