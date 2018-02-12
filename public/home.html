@@ -26,6 +26,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/css/mdb.min.css">
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.6/angular-material.min.css">
+    <!-- AngularJS Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-messages.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-messages.min.js"></script>
+    <!-- AngularJS Material Javascript now available via Google CDN; version 1.1.4 used here -->
+    <script src="https://cdn.gitcdn.link/cdn/angular/bower-material/v1.1.6-master-15a8410/angular-material.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
 
 </head>
 
@@ -92,7 +104,7 @@
                     <!--First columnn-->
                     <div class="col-lg-8 mb-r ">
                         <!--Card-->
-                        <a id="createJourney">
+                        <a id="createJourney" ng-click="myFunc()">
                             <div class="card hoverable wow fadeIn view">
                                 <!--Card image-->
                                 <img class="img-fluid" src="images/trip-planner.jpg" alt="Card image cap">
@@ -143,7 +155,10 @@
                     </div>
             </section>
             <!--/Section: Best features-->
-             <md-button md-no-ink="" class="md-primary">Primary Angular Button</md-button>
+
+            
+            
+            
           </div>
             <!--/.Main layout-->
             <!--Footer-->
@@ -213,16 +228,6 @@
         </div>
     </div>
     <!--Modal: modalCookie-->
-
-    <!-- AngularJS Material Dependencies -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-animate.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-aria.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular-messages.min.js"></script>
-
-    <!-- AngularJS Material Javascript now available via Google CDN; version 1.1.4 used here -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.6/angular-material.min.js"></script>
-    
     <!--/.Footer-->
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.4.5/js/mdb.min.js"></script>
@@ -253,7 +258,12 @@
     <script type="text/javascript">
     $(document).ready(function() {
         $("#createJourney").click(function() {
-            $("#load-container").load("form.html #search-flight-form");
+            $('#load-container').load('form.html', function (_, status) {
+            if (status === 'success') {
+            angular.bootstrap($(this), ['FlightSearch']);
+            }
+            });
+            // $("#load-container").load("form.html");
         });
         $("#detailsApp").click(function() {
             $("#load-container").load("details.html");
