@@ -1,3 +1,8 @@
+<script src='browser/swagger-client.js' type='text/javascript'></script>
+<script>
+var swaggerClient = new SwaggerClient(specUrl);
+</script>
+
 <script language="javascript">
 angular
     .module('FlightSearch', ['ngMaterial', 'ngMessages', 'material.svgAssetsCache'])
@@ -266,6 +271,12 @@ PanelMenuCtrl.prototype.onKeydown = function($event, dessert) {
     }
 };
 </script>
+<!-- run JQUERY -->
+<script
+src="https://code.jquery.com/jquery-3.2.1.js"
+integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+crossorigin="anonymous"></script>
+
 <!-- Template styles -->
 <style rel="stylesheet">
 /* TEMPLATE STYLES */
@@ -581,5 +592,54 @@ md-content {
                 </div>
                 <hr>
                 <!--/.Main layout-->
+
+                <div class="input-group">
+                    <input type="text" id="origin">
+                    <input type="text" id="destination">
+                    <input type="text" id="departure_date">
+                    <input type="text" id="return_date">
+                </div>
+                <button onclick="GetResults()">GET</button>
+
+
+                <script type="text/javascript">
+
+                function GetResults(){
+                d_origin = document.getElementById('origin').value;
+                d_destination = document.getElementById('destination').value;
+                d_departure = document.getElementById('departure_date').value;
+                d_return = document.getElementById('return_date').value;
+                var mydata = {
+                "apikey":"K8ICvyrogbDn874E4qIpMNFS9Wvnh3zi",
+                "origin":d_origin,
+                "destination":d_destination,
+                "departure_date":d_departure,
+                "return_date":d_return,
+                "adults": 1,
+                "currency":"GBP",
+                "number_of_results": 2
+                }
+                    alert(mydata);
+                $.ajax({
+                url:"https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search",
+                data: mydata,
+                dataType:"jsonp",
+                success: OnSuccess,
+                failure: function (response){
+                    alert(response.d);
+                }
+                });
+                }
+                function OnSuccess(response){
+                    alert(JSON.stringify(response));
+                    document.getElementById('container').value= JSON.stringify(response); ; 
+                document
+
+                }
+                </script>
+
+                <p id="container">origin=NYC&destination=LAS&departure_date=2017-12--2018-01&duration=2--3&apikey=K8ICvyrogbDn874E4qIpMNFS9Wvnh3zi</p>
+
+                <p>curl -X GET "https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=K8ICvyrogbDn874E4qIpMNFS9Wvnh3zi&origin=BHX&destination=MAD&departure_date=2018-06-25&return_date=2018-06-30&adults=1&currency=GBP&number_of_results=5"</p>
     </main>
     </div>
